@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.social {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
+
+.logo {
+  flex: 1;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  transition: font-size 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  font-size: 38px; /* Slightly increase font size on hover */
+  transform: scale(1.05); /* Slightly scale up the logo on hover */
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  font-size: 20px;
+}
+
+.link {
+  text-decoration: none; /* Remove default underline */
+  position: relative; /* Create a relative positioning context for the ::after pseudo-element */
+}
+
+.link::after {
+  content: ''; /* Create an empty content pseudo-element */
+  position: absolute; /* Position it absolutely relative to the link */
+  bottom: 0; /* Position it at the bottom of the link */
+  left: 0; /* Position it at the left of the link */
+  right: 0; /* Position it at the right of the link */
+  height: 2px; /* Set the height of the underline */
+  background-color: transparent; /* Initial background color (transparent) */
+  transition: background-color 0.3s ease-in-out; /* Add a transition for the background-color */
+}
+
+.link:hover::after {
+  background-color: #007f7f; /* Change background color to create an underline on hover */
+}
+
+@media screen and (max-width: 1280px) {
+  .logo {
+    font-size: 32px;
+  }
+  .links {
+    font-size: 18px;
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .social {
+    display: none;
+  }
+  .logo {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .links {
+    justify-content: flex-end;
+  }
+  .link {
+    display: none;
+  }
+}
